@@ -1,13 +1,25 @@
-import { useState } from 'react'
+import { BrowserRouter, createBrowserRouter, RouterProvider } from "react-router"
+import Home from "./pages/Home"
+import PetProfile from "./pages/PetProfile"
+import homeLoader from "./loader/homeLoader"
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const browserRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      loader: homeLoader
+    },
+    {
+      path: "/pet-profile",
+      element: <PetProfile />
+    }
+  ])
+  
+  return <RouterProvider router={browserRouter} />
 
-  return (
-    <>
-      
-    </>
-  )
 }
 
 export default App
